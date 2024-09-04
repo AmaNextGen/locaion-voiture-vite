@@ -15,17 +15,20 @@ const SearchBar = () => {
     navigate(`/search${parameters}`);
   };
 
+
   return (
     <div className="bg-white flex justify-between gap-4 p-2 rounded-full items-center mb-14 w-[800px]">
+
       <Select
-        defaultValue={used}
         className="w-full"
+        defaultValue={used}
         onChange={(value) => setUsed(value)}
       >
         <Select.Option value="any">Any Cars</Select.Option>
         <Select.Option value="used">Used Cars</Select.Option>
         <Select.Option value="new">New Cars</Select.Option>
       </Select>
+      
       <Select
         defaultValue={make}
         className="w-full"
