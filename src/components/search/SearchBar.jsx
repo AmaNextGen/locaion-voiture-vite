@@ -25,8 +25,8 @@ const SearchBar = () => {
         onChange={(value) => setUsed(value)}
       >
         <Select.Option value="any">Any Cars</Select.Option>
-        <Select.Option value="used">Used Cars</Select.Option>
-        <Select.Option value="new">New Cars</Select.Option>
+        <Select.Option value="true">Used Cars</Select.Option>
+        <Select.Option value="false">New Cars</Select.Option>
       </Select>
       
       <Select

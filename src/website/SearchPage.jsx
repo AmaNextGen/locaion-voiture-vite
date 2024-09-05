@@ -2,7 +2,6 @@ import React from "react";
 import WebsiteDarkHeader from "../Layout/WesbiteDarkHeader";
 import SearchBar from "../components/search/SearchBar";
 import { Breadcrumb } from "antd";
-import { listings } from "../data/cars";
 import ListingList from "../components/Listing/ListingList";
 import SearchFilters from "../components/search/SearchFilters";
 import SearchSlidefilters from "../components/search/SearchSlidefilters";
@@ -33,7 +32,7 @@ const SearchPage = () => {
               <SearchFilters />
             </div>
             <div className="w-[70%] p-5">
-              <ListingList listdesvoitures={listings} />
+              <ListingList  />
             </div>
           </div>
         </div>
