@@ -1,17 +1,32 @@
 import {
-    Checkbox,
-    Input,
-    Select,
-    Slider as AntdSlider,
-    InputNumber,
-  } from "antd";
+  Checkbox,
+  Input,
+  Select,
+  Slider as AntdSlider,
+  InputNumber,
+} from "antd";
+import { useNavigate } from "react-router-dom";
 
 const SearchFilters = () => {
+  const navigate = useNavigate();
+  const query = new URLSearchParams(window.location.search);
+
+  const setQuery = (name, value) => {
+    query.set(name, value);
+    const parameters = `?${query.toString()}`;
+    navigate(`/search${parameters}`);
+  };
+
   return (
     <div className="border rounded-lg p-3 h-full">
       <div className="border p-2 rounded-xl mb-5">
         <span className="text-gray-400 pl-3">Location</span>
-        <Select className="w-full" size="large" defaultValue={"dikhil"}>
+        <Select
+          className="w-full"
+          size="large"
+          defaultValue={"dikhil"}
+          onChange={(value) => setQuery("location", value)}
+        >
           <Select.Option value="djibouti villde">Djibouti Ville</Select.Option>
           <Select.Option value="djibouti">Djibouti</Select.Option>
           <Select.Option value="ali sabieh">Ali Sabieh</Select.Option>
@@ -57,8 +72,14 @@ const SearchFilters = () => {
       <div className="py-3">
         <p className="text-lg font-semibold mb-3">Type</p>
         <div className="flex flex-col gap-3">
-          <Checkbox>SUV</Checkbox>
-          <Checkbox>Sedan</Checkbox>
+          <Checkbox
+            onChange={(e) => {
+              setQuery("type", e.target.checked ? "suv" : "");
+            }}
+          >
+            SUV
+          </Checkbox>
+          <Checkbox onChange={(e) => {}}>Sedan</Checkbox>
           <Checkbox>Truck</Checkbox>
           <Checkbox>Coupe</Checkbox>
         </div>
