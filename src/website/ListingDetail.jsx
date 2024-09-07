@@ -5,7 +5,7 @@ import { listdesvoitures } from "../data/cars";
 
 const ListingDetail = () => {
   const { id } = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const car = listdesvoitures.find((car) => car.id === parseInt(id));
 
   return (
@@ -15,7 +15,7 @@ const ListingDetail = () => {
         {/* Back Button */}
         <Button 
           type="default" 
-          onClick={() => useNavigate(-1)} 
+          onClick={() => navigate(-1)} 
           className="mb-4"
         >
           Back
