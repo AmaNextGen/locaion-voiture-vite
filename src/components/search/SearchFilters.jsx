@@ -74,7 +74,8 @@ const SearchFilters = () => {
         <div className="flex flex-col gap-3">
           <Checkbox
             onChange={(e) => {
-              setQuery("type", e.target.checked ? "suv" : "");
+              const value = e.target.checked ? "suv" : "";
+              setQuery("type", value);
             }}
           >
             SUV

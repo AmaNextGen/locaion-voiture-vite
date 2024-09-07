@@ -12,16 +12,23 @@ const ListingList = ( ) => {
 
   const query = new URLSearchParams(location.search);
   const used = query.get('used');
+  const suv = query.get('suv');
 
   useEffect(() => {
 
+    let filteredCars = listdesvoitures; 
+
     if(used == "true"){
-      const usedCard = listdesvoitures.filter((voiture) => voiture.used === true);
-      setVoitures(usedCard);
+      filteredCars = listdesvoitures.filter((voiture) => voiture.used === true); 
+
     }else if (used == "false"){
-      const newCard = listdesvoitures.filter((voiture) => voiture.used === false);
-      setVoitures(newCard);
+      filteredCars = listdesvoitures.filter((voiture) => voiture.used === false);
     }
+    if(suv){
+      filteredCars = listdesvoitures.filter((voiture) => voiture.type === "SUV");
+    }
+
+    setVoitures(filteredCars);
   }, [location.search])
 
 
